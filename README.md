@@ -1,7 +1,6 @@
 # A?alto Web+
 
-A?alto Web+ provides better user experience for web services (Noppa/Oodi) provided by Aalto University.
-Supports Firefox/Chrome.
+A?alto Web+ provides better user experience for web services (Noppa/Oodi) provided by Aalto University. The modifications to these services are made using so called user scripts that are supported by Firefox and Chrome. User scripts are scripts that make on-the-fly changes to specific web pages on the client side (in this case in the browser), typically to change their appearance or to add or modify functionality. 
 
 Current version includes:
 
