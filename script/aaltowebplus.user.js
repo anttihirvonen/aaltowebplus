@@ -6,6 +6,7 @@
 // @include     https://idp.aalto.fi/idp/Authn/Kerberos
 // @include     https://weblogin.tkk.fi/app/login
 // @include     https://cardan.aalto.fi/iam/*
+// @include     https://oodi.aalto.fi/a/alkusivu.jsp*
 // @exclude     https://noppa.aalto.fi/Shibboleth.sso/
 // @exclude     https://noppa.aalto.fi/noppa/assets/static/dojo-0.4.3/iframe_history.html
 // ==/UserScript==
@@ -119,6 +120,12 @@ if(/^https:\/\/noppa\.aalto\.fi/.test(location.href)) {
         window.location.href = "https://noppa.aalto.fi:443/Shibboleth.sso/AALTOLogin?target=https://noppa.aalto.fi/noppa/shibboleth_login"
 }
 
+// OODI
+if(/https:\/\/oodi\.aalto\.fi\/a\/alkusivu.jsp/.test(location.href)) {
+    if(document.getElementsByClassName("aalto-login-student").length && window.top) {
+        window.top.location.href = "https://oodi.aalto.fi/a/oodishibboleth_student.jsp";
+    }   
+}
 
 // OODI(?) LOGIN SELECTOR
 if(/^https:\/\/cardan\.aalto\.fi\/iam\/WAYF/.test(location.href)) {
