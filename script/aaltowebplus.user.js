@@ -12,9 +12,11 @@
 
 // A?alto Web+
 // by Antti Hirvonen (antti.hirvonen@gmail.com)
+// 
+// Github: https://github.com/anttihirvonen/aaltowebplus
 //
 // This script makes Aalto's IT-services more usable by providing automated logins
-// for Noppa and Oodi. It also fixes some shortcomings in Noppa. See the web page
+// for Noppa and Oodi. It also fixes some shortcomings in Noppa. See the Github page
 // for more information.
 //
 // Please submit your feature requests/bug reports/etc. via Github or e-mail!
@@ -89,10 +91,10 @@ function autoLoginForm(userfieldName, helpTextContainer)
       
     // Show help
     var helptext = document.createElement('h3');
-    helptext.innerHTML = 'A?alto Web+ suggests, that you save your login credentials\
-                          into your browser. That way you your browser will autocomplete these\
+    helptext.innerHTML = 'A?alto Web+ suggests, that you save your login credentials \
+                          into your browser. Your browser will then autocomplete these \
                           values for you, making the login process completely automatic.<br />\
-                          <span style="color:red;">DO NOT SAVE THEM ON A PUBLIC COMPUTER.</span>';
+                          <span style="color:red;">DO NOT SAVE YOUR CREDENTIALS ON A PUBLIC COMPUTER.</span>';
     helpTextContainer.appendChild(helptext);
 }
 
