@@ -28,6 +28,14 @@ function doNoppaSearch() {
     window.location.href = "https://noppa.aalto.fi/noppa/haku/" + inputValue;
     return false;
 }
+
+function handleInputKeypress(event) {
+    if(event.keyCode == 13) {
+        doNoppaSearch();
+        return false;
+    }
+}
+
 function makeNoppaMoreUsable() {
     // Add course search bar to right side navi
     var searchContainer = document.createElement('div');
@@ -38,11 +46,13 @@ function makeNoppaMoreUsable() {
                                 </div>'
     searchContainer.className = "box";
     
+    
     var cont = document.getElementById("additionalNaviContainer");
     if(cont.firstChild) cont.insertBefore(searchContainer, cont.firstChild);
     else cont.appendChild(searchContainer);
     
     document.getElementById("fastsearch-submit").addEventListener("click", doNoppaSearch, true)
+    document.getElementById("fastsearch-input").addEventListener("keypress", handleInputKeypress, true);
     
     // Search results: if only one result, directly redirect
     if(/^https:\/\/noppa\.aalto\.fi\/noppa\/haku/.test(location.href)) {
@@ -108,6 +118,7 @@ if(/^https:\/\/noppa\.aalto\.fi/.test(location.href)) {
     else
         window.location.href = "https://noppa.aalto.fi:443/Shibboleth.sso/AALTOLogin?target=https://noppa.aalto.fi/noppa/shibboleth_login"
 }
+
 
 // OODI(?) LOGIN SELECTOR
 if(/^https:\/\/cardan\.aalto\.fi\/iam\/WAYF/.test(location.href)) {
