@@ -9,6 +9,10 @@ Current version includes:
   - search box at the right navigation of Noppa
   - direct redirect to course in Noppa if there's only one search result
 
+As this is a fast weekend hack I've included only the absolute minimum improvements, but expect to see more in the future :)
+
+New ideas more than welcome!
+
 # Installation
 
 I try to not to break the version on master, so you don't have to worry about accidentally installing a broken version.
@@ -31,3 +35,18 @@ Chrome supports user scripts directly, so there's not much to do.
 2. Chrome should inform you about new extension at the bottom of the screen
 3. press "Continue" to install
 4. navigate to [Noppa](https://noppa.aalto.fi/noppa/app) - if you are redirected to login page, everything works
+                                                         
+# Upgrading
+
+Remove the old version (instructions below) and follow the installation instructions to upgrade. Since user scripts don't save any data on the hard drive, it's safe to remove old version and install new without any side effects.
+
+# Removing
+
+## Firefox
+
+Click the arrow next to monkey at the upper-right corner of the browser, select "Manage User Scripts..." and press "Remove" on A?alto Web+.
+
+## Chrome
+
+Navigate to chrome://extensions/ and press "Remove" on A?alto Web+.
+
