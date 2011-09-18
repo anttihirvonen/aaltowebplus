@@ -44,7 +44,6 @@ function makeNoppaMoreUsable() {
     
     // Search results: if only one result, directly redirect
     if(/^https:\/\/noppa\.aalto\.fi\/noppa\/haku/.test(location.href)) {
-        GM_log("onlyCourse.lastChild.firstChild.href");
         if(document.getElementById("crsTableView") && !document.getElementById("informal_2")) {
             var onlyCourse = document.getElementById("informal_1");
             // redirect to course
@@ -78,7 +77,6 @@ function autoLoginForm(userfieldName, helpTextContainer)
     // Submits login form after browser has filled in password
     var submitLogin = function() {
         var username = document.getElementsByName(userfieldName)[0].value;
-        GM_log(username);
         // Submit only, if username has been given
         if(username)
             document.forms[0].submit();
@@ -100,22 +98,17 @@ function autoLoginForm(userfieldName, helpTextContainer)
 
 // NOPPA SECTION
 if(/^https:\/\/noppa\.aalto\.fi/.test(location.href)) {
-    GM_log("NOPPA");
     // If no element with loginName id is found, we are not logged in - redirect
     loginNameElement = document.getElementById("loginName")
     if(loginNameElement)
-    {
         // We are in Noppa!
-        GM_log('Hello world!');
         makeNoppaMoreUsable();
-    }
     else
         window.location.href = "https://noppa.aalto.fi:443/Shibboleth.sso/AALTOLogin?target=https://noppa.aalto.fi/noppa/shibboleth_login"
 }
 
 // OODI(?) LOGIN SELECTOR
 if(/^https:\/\/cardan\.aalto\.fi\/iam\/WAYF/.test(location.href)) {
-    GM_log("LOGIN SELECTOR");
     var select = document.getElementsByName("user_idp")[0];
     select.selectedIndex = 4;
     document.forms[0].submit();
@@ -123,7 +116,6 @@ if(/^https:\/\/cardan\.aalto\.fi\/iam\/WAYF/.test(location.href)) {
 
 // AALTO LOGIN SECTION
 if(/^https:\/\/idp.aalto.fi\/idp\/Authn\/Kerberos/.test(location.href)) {
-    GM_log("LOGIN");
     autoLoginForm("j_username", document.getElementById("infotext"));
 }
 
