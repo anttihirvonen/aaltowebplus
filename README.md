@@ -1,20 +1,19 @@
 # A?alto Web+
 
-A?alto Web+ fixes some quirks and provides better user experience for web services (Noppa/Oodi) provided by Aalto University.
-Supports Firefox/Chrome.
+A?alto Web+ provides better user experience for web services (Noppa/Oodi) provided by Aalto University. The modifications to these services are made using so called user scripts that are supported by Firefox and Chrome. User scripts are scripts that make on-the-fly changes to specific web pages on the client side (in this case in the browser), typically to change their appearance or to add or modify functionality. 
 
 Current version includes:
 
-  - Noppa/Oodi: automatic logins (using the browser's mechanism for storing passwords)
+  - Noppa/Oodi: automatic logins (using the in-browser mechanism for storing passwords)
   - Noppa: search box at the right navigation
   - Noppa: direct redirect to course if there's only one search result
   - Noppa: Facebook comments plugin, so you can comment every course and see what other people have said
 
-New ideas more than welcome!
+Got a cool idea? Submit a feature request at https://github.com/anttihirvonen/aaltowebplus/issues.
 
 # Installation
 
-I try to not to break the version on master, so you don't have to worry about accidentally installing a broken version.
+I try to keep latest working version on the master branch, so you don't have to worry about accidentally installing a broken version.
 
 ## Firefox
 
