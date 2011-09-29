@@ -64,7 +64,7 @@ function addFacebookComments() {
     }
 }
 
-function makeNoppaMoreUsable() {
+function addFastSearch() {
     // Add course search bar to right side navi
     var searchContainer = document.createElement('div');
     searchContainer.innerHTML = '<div class="title">A?alto Web+</div>\
@@ -78,10 +78,13 @@ function makeNoppaMoreUsable() {
     if(cont.firstChild) cont.insertBefore(searchContainer, cont.firstChild);
     else cont.appendChild(searchContainer);
     
-    addFacebookComments();
-    
     document.getElementById("fastsearch-submit").addEventListener("click", doNoppaSearch, true)
     document.getElementById("fastsearch-input").addEventListener("keypress", handleInputKeypress, true);
+}
+
+function makeNoppaMoreUsable() {
+    addFacebookComments();
+    addFastSearch();
     
     // Search results: if only one result, directly redirect
     if(/^https:\/\/noppa\.aalto\.fi\/noppa\/haku/.test(location.href)) {
