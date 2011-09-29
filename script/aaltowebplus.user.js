@@ -48,11 +48,16 @@ function addFacebookComments() {
                           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
                           fjs.parentNode.insertBefore(js, fjs);
         }(document, "script", "facebook-jssdk"));
-
+        
+        var courseRe = /kurssi\/(.*?)(\/|$)/;
+        var courseArray = courseRe.exec(window.location.href);
+        
+        var courseUrl = "https://noppa.aalto.fi/noppa/kurssi/" + courseArray[1];
+        
         fb.innerHTML = '<div id="fb-root"></div>\
-                        <h3>A?alto Web+ -comments</h3>\
+                        <h3>A?alto Web+ -comments for course ' + courseArray[1] + '</h3>\
                         <div class="fb-comments" data-href="'
-                        + window.location.href +
+                        + courseUrl +
                         '" data-num-posts="2" data-width="500"></div>';
     
         ccframe.appendChild(fb);
