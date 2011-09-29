@@ -37,6 +37,28 @@ function handleInputKeypress(event) {
     }
 }
 
+function addFacebookComments() {
+    var ccframe = document.getElementById("courseContentFrame");
+    if(ccframe) {
+        var fb = document.createElement('div');
+        (function(d, s, id) {
+                          var js, fjs = d.getElementsByTagName(s)[0];
+                          if (d.getElementById(id)) {return;}
+                          js = d.createElement(s); js.id = id;
+                          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                          fjs.parentNode.insertBefore(js, fjs);
+        }(document, "script", "facebook-jssdk"));
+
+        fb.innerHTML = '<div id="fb-root"></div>\
+                        <h3>A?alto Web+ -comments</h3>\
+                        <div class="fb-comments" data-href="'
+                        + window.location.href +
+                        '" data-num-posts="2" data-width="500"></div>';
+    
+        ccframe.appendChild(fb);
+    }
+}
+
 function makeNoppaMoreUsable() {
     // Add course search bar to right side navi
     var searchContainer = document.createElement('div');
@@ -47,27 +69,11 @@ function makeNoppaMoreUsable() {
                                 </div>'
     searchContainer.className = "box";
     
-    // Facebook comments
-    var fb = document.createElement('div');
-    (function(d, s, id) {
-                      var js, fjs = d.getElementsByTagName(s)[0];
-                      if (d.getElementById(id)) {return;}
-                      js = d.createElement(s); js.id = id;
-                      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                      fjs.parentNode.insertBefore(js, fjs);
-    }(document, "script", "facebook-jssdk"));
-    
-    fb.innerHTML = '<div id="fb-root"></div>\
-                    <h3>A?alto Web+ -comments</h3>\
-                    <div class="fb-comments" data-href="' + window.location.href + '" data-num-posts="2" data-width="500"></div>'
-    
-    var ccframe = document.getElementById("courseContentFrame");
-    if(ccframe)
-        ccframe.appendChild(fb);
-    
     var cont = document.getElementById("additionalNaviContainer");
     if(cont.firstChild) cont.insertBefore(searchContainer, cont.firstChild);
     else cont.appendChild(searchContainer);
+    
+    addFacebookComments();
     
     document.getElementById("fastsearch-submit").addEventListener("click", doNoppaSearch, true)
     document.getElementById("fastsearch-input").addEventListener("keypress", handleInputKeypress, true);
