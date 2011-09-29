@@ -5,11 +5,10 @@ Supports Firefox/Chrome.
 
 Current version includes:
 
-  - automatic logins for Noppa/Oodi (using the browser's mechanism for storing passwords)
-  - search box at the right navigation of Noppa
-  - direct redirect to course in Noppa if there's only one search result
-
-As this is a fast weekend hack I've included only the absolute minimum improvements, but expect to see more in the future :)
+  - Noppa/Oodi: automatic logins (using the browser's mechanism for storing passwords)
+  - Noppa: search box at the right navigation
+  - Noppa: direct redirect to course if there's only one search result
+  - Noppa: Facebook comments plugin, so you can comment every course and see what other people have said
 
 New ideas more than welcome!
 
