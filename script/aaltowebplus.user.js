@@ -49,7 +49,7 @@ function addFacebookComments() {
                           fjs.parentNode.insertBefore(js, fjs);
         }(document, "script", "facebook-jssdk"));
         
-        var courseRe = /kurssi\/(.*?)(\/|$)/;
+        var courseRe = /kurssi\/(.*?)(\/|$|\?)/;
         var courseArray = courseRe.exec(window.location.href);
         
         var courseUrl = "https://noppa.aalto.fi/noppa/kurssi/" + courseArray[1];
