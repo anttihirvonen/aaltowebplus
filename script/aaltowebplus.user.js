@@ -22,6 +22,19 @@
 //
 // Please submit your feature requests/bug reports/etc. via Github or e-mail!
 
+// For Chrome: emulate GreaseMonkey's functions
+if (!this.GM_getValue || (this.GM_getValue.toString && this.GM_getValue.toString().indexOf("not supported")>-1)) {
+    this.GM_getValue=function (key,def) {
+        return localStorage[key] || def;
+    };
+    this.GM_setValue=function (key,value) {
+        return localStorage[key]=value;
+    };
+    this.GM_deleteValue=function (key) {
+        return delete localStorage[key];
+    };
+}
+
 function doNoppaSearch() {
     var inputValue = document.getElementById("fastsearch-input").value;
     inputValue = inputValue.replace(/ /g, "_");
@@ -143,12 +156,24 @@ function autoLoginForm(userfieldName, helpTextContainer)
 // NOPPA SECTION
 if(/^https:\/\/noppa\.aalto\.fi/.test(location.href)) {
     // If no element with loginName id is found, we are not logged in - redirect
-    loginNameElement = document.getElementById("loginName")
-    if(loginNameElement)
+    loginNameElement = document.getElementById("loginName");
+    console.log("here");
+    if(loginNameElement) {
+        // If we just did redirect, jump to the page where we iniated
+        // the login cycle
+        previous = GM_getValue("previous_noppa_page", null);
+        if(previous) {
+            GM_deleteValue("previous_noppa_page");
+            window.location.href = previous;
+        }
+        
         // We are in Noppa!
         makeNoppaMoreUsable();
-    else
+    } else {
+        // Save the current page, so we can later redirect user back to same page
+        GM_setValue("previous_noppa_page", window.location.href);
         window.location.href = "https://noppa.aalto.fi:443/Shibboleth.sso/AALTOLogin?target=https://noppa.aalto.fi/noppa/shibboleth_login"
+    }
 }
 
 // OODI
